@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const config = require('./config');
+const userRoutes = require('./routes/account');
 
 const app = express();
 
@@ -22,11 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(cors());
 
-app.get('/', (req, res, next) => {
-  res.json({
-    user: 'Ringo Li'
-  });
-});
+app.use('/accounts', userRoutes);
 
 app.listen(config.port, () => {
   console.log(`Magic happen here on localhost:${config.port} :)`);
