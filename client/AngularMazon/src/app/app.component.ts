@@ -1,6 +1,6 @@
-import { DataService } from './data.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,10 @@ export class AppComponent {
   searchTerm = '';
   isCollapsed = true;
 
-  constructor(private router: Router, private data: DataService) {}
+  constructor(private router: Router, private data: DataService) {
+    const h = this.data.getProfile();
+    this.data.getProfile();
+  }
 
   get token() {
     return localStorage.getItem('token');
