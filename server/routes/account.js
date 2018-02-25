@@ -33,7 +33,7 @@ router.post('/signup', (req, res, next) => {
         token
       });
     }
-  })
+  });
 });
 
 router.post('/login', (req, res, next) => {
